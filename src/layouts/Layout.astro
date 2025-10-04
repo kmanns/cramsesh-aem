@@ -1,6 +1,8 @@
----
+
+--- 
+import { Home, BookOpen, Brain, FileText } from 'lucide-react';
 interface Props {
-  title: string;
+	title: string;
 }
 
 const { title } = Astro.props;
@@ -8,15 +10,57 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="AEM Business Practitioner Professional Study Guide" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <slot />
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="min-h-screen bg-gray-100 font-sans">
+		<div class="flex">
+			<aside class="w-64 bg-white shadow-md h-screen sticky top-0">
+				<div class="p-6">
+					<a href="/" class="flex items-center space-x-2">
+						<img src="/logo.svg" alt="Cram Sesh Logo" class="h-8 w-8">
+						<span class="text-2xl font-bold">Cram Sesh</span>
+					</a>
+				</div>
+				<nav class="mt-6">
+					<a href="/" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-200">
+						<Home class="w-5 h-5" />
+						<span class="ml-3">Home</span>
+					</a>
+					<a href="#education" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-200">
+						<BookOpen class="w-5 h-5" />
+						<span class="ml-3">Education</span>
+					</a>
+					<a href="#architecture" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-200">
+						<BookOpen class="w-5 h-5" />
+						<span class="ml-3">Architecture</span>
+					</a>
+					<a href="#business" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-200">
+						<BookOpen class="w-5 h-5" />
+						<span class="ml-3">Business Analysis</span>
+					</a>
+					<a href="#implementation" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-200">
+						<BookOpen class="w-5 h-5" />
+						<span class="ml-3">Implementation</span>
+					</a>
+					<a href="#practice" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-200">
+						<Brain class="w-5 h-5" />
+						<span class="ml-3">Practice Test</span>
+					</a>
+					<a href="#resources" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-200">
+						<FileText class="w-5 h-5" />
+						<span class="ml-3">Resources</span>
+					</a>
+				</nav>
+			</aside>
+			<main class="flex-1 p-8">
+				<slot />
+			</main>
+		</div>
+	</body>
 </html>
